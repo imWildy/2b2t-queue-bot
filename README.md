@@ -6,7 +6,7 @@
 
 - Clone This Repository and then run `npm install` to install all the neccessary dependencies required for the bot.
 - After the installation has finished, run `node .`
-If the command doesnt work, [download node.js](https://nodejs.org/en/download)
+If the command does not work, [download node.js](https://nodejs.org/en/download)
 - Link your microsoft account and then the script should automatically start running and show your current queue position
 
 ## How To Join 2b2t

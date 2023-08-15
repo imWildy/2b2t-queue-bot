@@ -1,11 +1,24 @@
 const mlfyr = require('mineflayer');
 const notifier = require('node-notifier');
+const cfg = require('./config.json');
 
 bot = mlfyr.createBot({
-  host: '2b2t.org',
-  auth: 'microsoft',
-  version: '1.19.4'
+  host: cfg.serverSettings.host,
+  port: cfg.serverSettings.port,
+  auth: cfg.accountAuth,
+  version: cfg.serverSettings.version,
+  username: cfg.serverSettings.username
 });
+
+function reconnectToServer() {
+  bot = mlfyr.createBot({
+    host: cfg.serverSettings.host,
+    port: cfg.serverSettings.port,
+    auth: cfg.accountAuth,
+    version: cfg.serverSettings.version,
+    username: cfg.serverSettings.username
+  });
+};
 
 const positionRegex = /Position in queue: (\d+)/;
 let notisent = false;
@@ -28,10 +41,12 @@ bot.on('messagestr', (msg) => {
   
   if (match) {
     const position = match[1];
-    console.log(`Position: ${position}`);
 
+    if (cfg.logging) {
+      console.log(`Position: ${position}`);
+    };
 
-    if (position > 50 || notisent) return;
+    if (position > cfg.desktopNotifications.threshold || notisent || !cfg.desktopNotifications.enabled) return;
     notisent = true;
     sendNotification(position);
   }
@@ -40,3 +55,13 @@ bot.on('messagestr', (msg) => {
 bot.on('error', console.log);
 bot.on('kicked', console.log);
 bot.on('end', console.log);
+
+bot.on('error', () => {
+  if (!cfg.reconnect.onError) return;
+  reconnectToServer();
+});
+
+bot.on('kicked', () => {
+  if (!cfg.reconnect.onKick) return;
+  reconnectToServer();
+});

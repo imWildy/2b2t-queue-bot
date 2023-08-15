@@ -1,0 +1,21 @@
+{
+    "accountAuth": "microsoft",
+    "logging": true,
+
+    "serverSettings": {
+        "host": "2b2t.org",
+        "port": 25565,
+        "version": "1.19.4",
+        "username": "usernameForOfflineAuth"
+    },
+
+    "desktopNotifications": {
+        "enabled": true,
+        "threshold": 50
+    },
+
+    "reconnect": {
+        "onError": true,
+        "onKick": true
+    }
+}
