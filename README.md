@@ -14,3 +14,10 @@ If the command doesnt work, [download node.js](https://nodejs.org/en/download)
 When you want to join 2b2t and not lose your queue position, you need to end the script just before you join 2b2t.
 You should join 2b2t in a max of a couple seconds after you exit the script.
 If done too slow then you will be sent to the back of the queue and will need to wait again!
+
+## Queue Bot Progress
+
+- [x] Bot that joins 2b2t
+- [x] Show user queue position
+- [] Show user Estimated Time to join
+-[] Add Express App to increase User Experience
