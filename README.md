@@ -19,5 +19,5 @@ If done too slow then you will be sent to the back of the queue and will need to
 
 - [x] Bot that joins 2b2t
 - [x] Show user queue position
-- [] Show user Estimated Time to join
--[] Add Express App to increase User Experience
+- [ ] Show user Estimated Time to join
+- [ ] Add Express App to increase User Experience
