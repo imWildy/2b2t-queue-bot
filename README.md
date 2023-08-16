@@ -2,9 +2,9 @@
 
 # 2b2t Queue Bot
 
-<p><h5>A bot to help you AFK in 2b2t queue if you are too poor to buy priority.</h5></p>
+<p><h4>A bot to help you AFK in 2b2t queue if you are too poor to buy priority.</h4></p>
 
-<img src="https://i.e-z.host/gn8g5q4k.png" alt="Application Preview" style="border-radius: 15px;">
+<img src="https://i.e-z.host/gn8g5q4k.png" alt="Application Preview">
 </div>
 
 ## How To Use
@@ -36,4 +36,4 @@ Configs are saved in the `config.json` file, to change configuration settings, e
 - [ ] An Express App to increase User Experience
 
 
-<h4>This project is still needs lots of work, I would appreciate if you submit a pull request or report issues in GitHub Issues.</h4>
+<h4>This project is still needs lots of work, I would appreciate if you submit a pull request or report issues in [GitHub Issues](https://github.com/imWildy/2b2t-queue-bot/issues).</h4>
