@@ -2,6 +2,8 @@ const mlfyr = require('mineflayer');
 const notifier = require('node-notifier');
 const cfg = require('./config.json');
 
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+
 bot = mlfyr.createBot({
   host: cfg.serverSettings.host,
   port: cfg.serverSettings.port,
@@ -22,6 +24,7 @@ function reconnectToServer() {
 
 const positionRegex = /Position in queue: (\d+)/;
 let notisent = false;
+let oldPos = -1;
 
 function sendNotification(pos) {
   const notification = {
@@ -37,13 +40,18 @@ function sendNotification(pos) {
   });
 };
 
-
 bot.on('messagestr', (msg) => {
   const match = msg.match(positionRegex);
   
   if (match) {
     const position = match[1];
 
+    if (cfg.onlyShowPosIfChanged) {
+      if (oldPos === position) return;
+    };
+
+    oldPos = position;
+    
     if (cfg.logging) {
       if (cfg.showNameNextToPos) { console.log(`Position: ${position} | ${bot.username}`) } else {
       console.log(`Position: ${position}`);

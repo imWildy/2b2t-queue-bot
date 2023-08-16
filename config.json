@@ -3,6 +3,7 @@
     "logging": true,
     "errorLogging": false,
     "showNameNextToPos": false,
+    "onlyShowPosIfChanged": true,
 
     "serverSettings": {
         "host": "2b2t.org",
