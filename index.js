@@ -2,7 +2,6 @@ const mlfyr = require('mineflayer');
 const notifier = require('node-notifier');
 const cfg = require('./config.json');
 
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 
 bot = mlfyr.createBot({
   host: cfg.serverSettings.host,
