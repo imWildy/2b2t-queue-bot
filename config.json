@@ -18,6 +18,7 @@
 
     "reconnect": {
         "onError": true,
-        "onKick": false
+        "onKick": false,
+        "onEnd": false
     }
 }

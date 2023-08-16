@@ -69,3 +69,8 @@ bot.on('kicked', () => {
   if (!cfg.reconnect.onKick) return;
   reconnectToServer();
 });
+
+bot.on('end', () => {
+  if (!cfg.reconnect.onEnd) return;
+  reconnectToServer();
+});
