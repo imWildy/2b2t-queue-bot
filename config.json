@@ -1,7 +1,7 @@
 {
     "accountAuth": "microsoft",
     "logging": true,
-    "errorLogging": true,
+    "errorLogging": false,
     "showNameNextToPos": false,
 
     "serverSettings": {
@@ -18,6 +18,6 @@
 
     "reconnect": {
         "onError": true,
-        "onKick": true
+        "onKick": false
     }
 }
