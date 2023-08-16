@@ -31,7 +31,9 @@ function sendNotification(pos) {
     sound: true
   };
 
-  notifier.notify(notification, function(err, response) {
+  notifier.notify(notification, function(err, res) {
+    if (!err || !cfg.errorLogging) return;
+    console.log(`An Error Occurred Whilst Attempting To Send Notification: ${err}`);
   });
 };
 
@@ -43,7 +45,9 @@ bot.on('messagestr', (msg) => {
     const position = match[1];
 
     if (cfg.logging) {
+      if (cfg.showNameNextToPos) { console.log(`Position: ${position} | ${bot.username}`) } else {
       console.log(`Position: ${position}`);
+      }
     };
 
     if (position > cfg.desktopNotifications.threshold || notisent || !cfg.desktopNotifications.enabled) return;
@@ -52,7 +56,7 @@ bot.on('messagestr', (msg) => {
   }
 });
 
-bot.on('error', console.log);
+if (cfg.errorLogging) { bot.on('error', console.log); }
 bot.on('kicked', console.log);
 bot.on('end', console.log);
 

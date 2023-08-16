@@ -1,6 +1,8 @@
 {
     "accountAuth": "microsoft",
     "logging": true,
+    "errorLogging": true,
+    "showNameNextToPos": false,
 
     "serverSettings": {
         "host": "2b2t.org",
