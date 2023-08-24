@@ -2,7 +2,7 @@
 
 # 2b2t Queue Bot
 
-<p><h4>A bot to help you AFK in 2b2t queue if you are too poor to buy priority.</h4></p>
+<p><h3>A bot to help you AFK in 2b2t queue if you are too poor to buy priority.</h3></p>
 
 <img src="https://i.e-z.host/gn8g5q4k.png" alt="Application Preview">
 </div>
@@ -18,7 +18,7 @@
 
 When you want to join 2b2t and not lose your queue position, you need to end the script just before you join 2b2t.
 You should join 2b2t in a max of a couple seconds after you exit the script.
-<h5>If done too slow then you will be sent to the back of the queue and will need to wait again!</h5>
+<h4>If done too slow then you will be sent to the back of the queue and will need to wait again!</h4>
 
 ## Config System
 
@@ -32,8 +32,8 @@ Configs are saved in the `config.json` file, to change configuration settings, e
 - [x] Bot that joins 2b2t
 - [x] Show user queue position
 - [x] A config system
+- [x] Bypass AFK Kicks
 - [ ] Show user Estimated Time to join
-- [ ] An Express App to increase User Experience
 
 
 <h4>This project still needs lots of work. I would appreciate if you submit a pull request or report issues in <a href="https://github.com/imWildy/2b2t-queue-bot/issues">GitHub Issues</a>.</h4>
