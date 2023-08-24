@@ -1,9 +1,9 @@
 {
     "accountAuth": "microsoft",
     "logging": true,
-    "errorLogging": false,
-    "showNameNextToPos": false,
+    "showNameNextToPos": true,
     "onlyShowPosIfChanged": true,
+    "antiAntiAFK": true,
 
     "serverSettings": {
         "host": "2b2t.org",
