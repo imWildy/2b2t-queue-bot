@@ -1,5 +1,5 @@
 const {WebhookClient, EmbedBuilder } = require('discord.js');
-const cfg = require('../../config.json');
+const cfg = require('../../config/config.json')
 const readline = require('readline');
 const bot = require('../index');
 const fs = require('fs');
@@ -28,7 +28,7 @@ fs.access('../../local.json', err => {
 
   const jsonData = JSON.stringify(data, null, 2);
 
-  fs.writeFile('../../local.json', jsonData, (err) => {
+  fs.writeFile('../../config/local.json', jsonData, (err) => {
     if (err) throw err;
     console.log('[DEBUG] Wrote To File "local.json"!'); // Debug Statement
   });

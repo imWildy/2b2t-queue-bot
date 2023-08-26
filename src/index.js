@@ -114,4 +114,4 @@ bot.on('end', () => {
   connectToServer();
 });
 
-module.exports = bot, EV;
+module.exports = bot;
