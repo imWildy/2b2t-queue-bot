@@ -1,8 +1,7 @@
 const mlfyr = require('mineflayer');
 const notifier = require('node-notifier');
 const cfg = require('../config/config.json');
-const EventEmitter = require('events');
-
+const discord = require('./discord/discord');
 
 function connectToServer() {
   bot = mlfyr.createBot({
@@ -19,7 +18,6 @@ connectToServer();
 
 
 const positionRegex = /Position in queue: (\d+)/;
-const EV = new EventEmitter();
 let notisent = false;
 let discordThresholdSent = false;
 let oldPos = null;
@@ -43,7 +41,7 @@ bot.on('spawn', () => {
   console.log(`Successfully Joined Server!`);
 
   if (!cfg.discord.enabled) return;
-  EV.emit('spawned');
+  discord.spawned();
 });
 
 bot.on('messagestr', (msg) => {
@@ -68,7 +66,7 @@ bot.on('messagestr', (msg) => {
     // Send Notifications
     if (position < cfg.discord.positionThreshold && !discordThresholdSent && cfg.discord.enabled) {
       discordThresholdSent = true;
-      EV.emit('thresholdHit');
+      discord.thresholdHit();
     } else if (position < cfg.desktopNotifications.threshold && !notisent && cfg.desktopNotifications.enbaled) {
       notisent = true;
       sendNotification(position);
@@ -91,7 +89,7 @@ bot.on('end', console.log);
 // Attempt To Reconnect To Server On Error/Kick
 bot.on('error', () => {
   if (cfg.discord.enabled) {
-    EV.emit('error');
+    discord.error();
   };
 
   if (!cfg.reconnect.onError) return;
@@ -100,7 +98,7 @@ bot.on('error', () => {
 
 bot.on('kicked', () => {
   if (cfg.discord.enabled) {
-    EV.emit('kick');
+    discord.kick();
   };
 
   if (!cfg.reconnect.onKick) return;
@@ -109,7 +107,7 @@ bot.on('kicked', () => {
 
 bot.on('end', () => {
   if (cfg.discord.enabled) {
-    EV.emit('end');
+    discord.end();
   };
 
   if (!cfg.reconnect.onEnd) return;
