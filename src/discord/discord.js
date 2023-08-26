@@ -13,23 +13,30 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question('Enter Webhook URL: ', (url) => {
-  wbhkURL = url;
-  console.log(`[DEBUG] Webhook URL = ${url}`); // Debug Statement
+
+fs.access('../../local.json', err => {
+  if (!err) return;
+
+  rl.question('Enter Webhook URL: ', (url) => {
+    wbhkURL = url;
+    console.log(`[DEBUG] Webhook URL = ${url}`); // Debug Statement
+  });
+
+  const data = {
+    webhookURL: wbhkURL
+  };
+
+  const jsonData = JSON.stringify(data, null, 2);
+
+  fs.writeFile('../../local.json', jsonData, (err) => {
+    if (err) throw err;
+    console.log('[DEBUG] Wrote To File "local.json"!'); // Debug Statement
+  });
 });
 
+const local = require('../../local.json');
 
-const data = {
-  webhookURL: wbhkURL
-};
-
-const jsonData = JSON.stringify(data, null, 2);
-
-fs.writeFile('../../local.json', jsonData, (err) => {
-  if (err) throw err;
-  console.log('[DEBUG] Wrote To File "local.json"!'); // Debug Statement
-});
-
+const webhookUrl = local.webhookURL;
 const regexPattern = /\/webhooks\/([^/]+)\/([^/]+)/;
 const match = webhookUrl.match(regexPattern);
 
@@ -43,7 +50,7 @@ console.log(' [DEBUG] ID:', id);
 console.log('[DEBUG] Token:', token);
 
 
-const webhook = new WebhookClient();
+const webhook = new WebhookClient(id, token);
 
 // Embed Configurations
 const posEmbed = new EmbedBuilder()
