@@ -34,6 +34,7 @@ Configs are saved in the `config.json` file, to change configuration settings, e
 - [x] A config system
 - [x] Bypass AFK Kicks
 - [ ] Show user Estimated Time to join
+- [ ] Discord Support
 
 
 <h4>This project still needs lots of work. I would appreciate if you submit a pull request or report issues in <a href="https://github.com/imWildy/2b2t-queue-bot/issues">GitHub Issues</a>.</h4>

@@ -12,6 +12,11 @@
         "username": "usernameForOfflineAuth"
     },
 
+    "discord": {
+        "enabled": false,
+        "positionThreshold": 50
+    },
+    
     "desktopNotifications": {
         "enabled": true,
         "threshold": 50
