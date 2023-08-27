@@ -1,7 +1,7 @@
 const mlfyr = require('mineflayer');
 const notifier = require('node-notifier');
 const cfg = require('../config/config.json');
-const discord = require('./discord/discord');
+const discord = require('./discord/start');
 
 function connectToServer() {
   bot = mlfyr.createBot({
@@ -14,7 +14,6 @@ function connectToServer() {
 };
 
 connectToServer();
-
 
 
 const positionRegex = /Position in queue: (\d+)/;
